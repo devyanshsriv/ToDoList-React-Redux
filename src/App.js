@@ -28,14 +28,10 @@ function mapDispatchToProps(dispatch) {
 
 class App extends Component {
 
-  componentDidMount() {
-    this.props.todosActions.addTodo("Do the Laundry")
-  }
-
   render() {
     return (
       <Router>
-        <Route exact path="/" render={(props) =>
+        {/* <Route exact path="/" render={(props) =>
           <BucketList>
             {
               this.props.buckets.map(({ text }, index) =>
@@ -48,8 +44,8 @@ class App extends Component {
             }
           </BucketList>
         }>
-        </Route>
-        <Route exact path="/bucketContents" render={(props) =>
+        </Route> */}
+        <Route exact path="/" render={(props) =>
           <TodoBackground>
             <TodoContainer>
               <TodoUncompletedList>
@@ -83,34 +79,5 @@ class App extends Component {
     )
   }
 }
-{/* <TodoBackground>
-  <TodoContainer>
-    <TodoUncompletedList>
-      {console.log(this.props, "uncompleted")}
-      {
-        this.props.todos.map(({ text, completed }, index) =>
-          !completed && <TodoItem
-            key={index}
-            index={index}
-            text={text}
-            completed={completed}
-          />
-        )
-      }
-    </TodoUncompletedList>
-    <TodoCompletedList>
-      {
-        this.props.todos.map(({ id, text, completed }, index) =>
-          completed && <TodoItem
-            key={id}
-            index={index}
-            text={text}
-            completed={completed}
-          />
-        )
-      }
-    </TodoCompletedList>
-  </TodoContainer>
-</TodoBackground> */}
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

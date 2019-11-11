@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { globalStyles } from './GlobalStyles'
 import View from './View'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
@@ -34,8 +33,6 @@ class TodoCompletedList extends Component {
             .filter((todo) => !todo.completed)
             .length !== 0
 
-        const { colors, borderRadius } = globalStyles
-
         const style = {
             header: {
                 fontWeight: '400',
@@ -49,8 +46,8 @@ class TodoCompletedList extends Component {
                 // background: colors.primary.base,
                 background: 'gray',
                 padding: '4em 3em',
-                borderBottomLeftRadius: borderRadius,
-                borderBottomRightRadius: borderRadius
+                borderBottomLeftRadius: '5px',
+                borderBottomRightRadius: '5px'
             }
         }
 

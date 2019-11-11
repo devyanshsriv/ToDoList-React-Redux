@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { globalStyles } from './GlobalStyles'
 import { PropTypes } from 'prop-types'
 import View from './View'
 import TodoToggleButton from './TodoToggleButton'
@@ -84,7 +83,6 @@ class TodoItem extends Component {
 
     render() {
         console.log(this.props, "todosActions")
-        const { colors } = globalStyles
         const { completed } = this.props
         const { hover, editing } = this.state
 
