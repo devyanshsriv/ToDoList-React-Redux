@@ -121,10 +121,6 @@ class TodoItem extends Component {
                             ref="todoInput"
                             style={style.input}
                             value={this.props.text}
-                            onChange={this.handleEdit.bind(this)}
-                            onFocus={this.enterEditing.bind(this)}
-                            onBlur={this.leaveEditing.bind(this)}
-                            onKeyPress={this.handleAdd.bind(this)}
                             readOnly
                         />
                         : <input
