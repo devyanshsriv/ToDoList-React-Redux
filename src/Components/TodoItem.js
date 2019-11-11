@@ -114,7 +114,34 @@ class TodoItem extends Component {
                 <View onClick={this.handleToggle.bind(this)}>
                     <TodoToggleButton active={this.props.completed} />
                 </View>
-                <input
+                {console.log('props on todo item', this.props)}
+                {
+                    this.props.completed === true
+                        ? <input
+                            className="pa2"
+                            type="text"
+                            ref="todoInput"
+                            style={style.input}
+                            value={this.props.text}
+                            onChange={this.handleEdit.bind(this)}
+                            onFocus={this.enterEditing.bind(this)}
+                            onBlur={this.leaveEditing.bind(this)}
+                            onKeyPress={this.handleAdd.bind(this)}
+                            readOnly
+                        />
+                        : <input
+                            className="pa2"
+                            type="text"
+                            ref="todoInput"
+                            style={style.input}
+                            value={this.props.text}
+                            onChange={this.handleEdit.bind(this)}
+                            onFocus={this.enterEditing.bind(this)}
+                            onBlur={this.leaveEditing.bind(this)}
+                            onKeyPress={this.handleAdd.bind(this)}
+                        />
+                }
+                {/* <input
                     className="pa2"
                     type="text"
                     ref="todoInput"
@@ -124,7 +151,7 @@ class TodoItem extends Component {
                     onFocus={this.enterEditing.bind(this)}
                     onBlur={this.leaveEditing.bind(this)}
                     onKeyPress={this.handleAdd.bind(this)}
-                />
+                /> */}
                 <View onClick={this.handleRemove.bind(this)}>
                     <TodoRemoveButton
                         hover={this.state.hover}

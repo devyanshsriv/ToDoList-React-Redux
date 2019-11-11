@@ -44,7 +44,7 @@ class TodoCompletedList extends Component {
                 // color: colors.primary.dark,
                 color: 'white',
                 // background: colors.primary.base,
-                background: 'gray',
+                background: 'lightsalmon',
                 padding: '4em 3em',
                 borderBottomLeftRadius: '5px',
                 borderBottomRightRadius: '5px'
@@ -55,7 +55,6 @@ class TodoCompletedList extends Component {
             <View column style={style.container} >
                 <View row style={style.header}>
                     <h3>COMPLETED</h3>
-                    {/* <p style={{ cursor: 'pointer' }} onClick={this.handleClear.bind(this)}>Clear</p> */}
                     <button className="btn btn-danger" onClick={this.handleClear.bind(this)}>Clear</button>
                 </View>
                 <View column>
