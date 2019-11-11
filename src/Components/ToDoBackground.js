@@ -10,7 +10,7 @@ export default class TodoBackground extends Component {
             justifyContent: 'center',
             alignItems: 'center',
             backgroundColor: 'light-blue',
-            background: 'yellow'
+            background: 'black'
         }
 
         return (
