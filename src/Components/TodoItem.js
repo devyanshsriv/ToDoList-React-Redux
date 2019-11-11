@@ -100,7 +100,6 @@ class TodoItem extends Component {
                 paddingBottom: '0.5em',
                 borderBottom: `1px dashed`,
                 transition: '.3s',
-                // color: completed && hover ? colors.primary.light : hover ? colors.primary.base : 'currentColor',
                 color: completed && hover ? 'purple' : hover ? 'darkblue' : 'currentColor',
                 textDecoration: completed && !editing ? 'line-through' : 'none'
             }
@@ -114,7 +113,6 @@ class TodoItem extends Component {
                 <View onClick={this.handleToggle.bind(this)}>
                     <TodoToggleButton active={this.props.completed} />
                 </View>
-                {console.log('props on todo item', this.props)}
                 {
                     this.props.completed === true
                         ? <input
@@ -141,17 +139,6 @@ class TodoItem extends Component {
                             onKeyPress={this.handleAdd.bind(this)}
                         />
                 }
-                {/* <input
-                    className="pa2"
-                    type="text"
-                    ref="todoInput"
-                    style={style.input}
-                    value={this.props.text}
-                    onChange={this.handleEdit.bind(this)}
-                    onFocus={this.enterEditing.bind(this)}
-                    onBlur={this.leaveEditing.bind(this)}
-                    onKeyPress={this.handleAdd.bind(this)}
-                /> */}
                 <View onClick={this.handleRemove.bind(this)}>
                     <TodoRemoveButton
                         hover={this.state.hover}
@@ -162,8 +149,5 @@ class TodoItem extends Component {
         )
     }
 }
-
-
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoItem);

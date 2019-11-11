@@ -15,11 +15,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 class TodoCompletedList extends Component {
-    // static propTypes = {
-    //   todos: PropTypes.array.isRequired,
-    //   clearTodos: PropTypes.func.isRequired
-    // };
-
     handleClear() {
         this.props.todosActions.clearTodos()
     }
@@ -41,9 +36,7 @@ class TodoCompletedList extends Component {
             },
             container: {
                 display: hasCompleted ? 'flex' : 'none',
-                // color: colors.primary.dark,
                 color: 'white',
-                // background: colors.primary.base,
                 background: 'lightsalmon',
                 padding: '4em 3em',
                 borderBottomLeftRadius: '5px',
