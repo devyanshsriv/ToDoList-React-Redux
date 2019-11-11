@@ -5,7 +5,7 @@ import TodoToggleButton from './TodoToggleButton'
 import TodoRemoveButton from './TodoRemoveButton'
 import { connect } from 'react-redux';
 import { todoActions } from '../Actions/Actions';
-import { bindActionCreators } from 'redux'
+import { bindActionCreators, compose } from 'redux'
 
 function mapStateToProps(state) {
     return { todos: state.todos }
@@ -64,7 +64,6 @@ class TodoItem extends Component {
     }
 
     handleToggle() {
-        console.log("handleToggle", this.props)
         // return false;
         this.props.todosActions.toggleTodo(this.props.index)
     }
@@ -82,10 +81,9 @@ class TodoItem extends Component {
     }
 
     render() {
-        console.log(this.props, "todosActions")
         const { completed } = this.props
         const { hover, editing } = this.state
-
+        console.log(this.props, "check")
         const style = {
             input: {
                 fontSize: '1em',

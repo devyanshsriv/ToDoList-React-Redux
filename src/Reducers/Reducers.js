@@ -1,4 +1,4 @@
-import { initialTodos } from '../Components/InitialTodos'
+import { initialTodos, initialTodos1 } from '../Components/InitialTodos'
 import { initialBuckets } from '../Components/Bucket/InitialBuckets'
 
 export function todos(state = initialTodos, action) {
@@ -53,6 +53,65 @@ export function todos(state = initialTodos, action) {
         case 'CLEAR_TODOS':
             return state.filter((todo) => {
                 return !todo.completed
+            })
+
+        default:
+            return state
+    }
+}
+
+export function todos1(state = initialTodos1, action) {
+    switch (action.type) {
+
+        // Push a new todo with the action text
+        // and a completed value of false
+        case 'ADD_TODO':
+            return [
+                ...state,
+                {
+                    text: action.text,
+                    completed: false
+                }
+            ]
+
+        // Mutate the todo that matches the action index
+        // and toggle it's existing value to the opposite
+        case 'TOGGLE_TODO':
+            return state.map((todo1, index) => {
+                if (index === action.index) {
+                    return {
+                        ...todo1,
+                        completed: !todo1.completed
+                    }
+                } else {
+                    return todo1
+                }
+            })
+
+        // Mutate the todo that matches the action index
+        // and change its text to the action text
+        case 'EDIT_TODO':
+            return state.map((todo1, index) => {
+                if (index === action.index) {
+                    return {
+                        ...todo1,
+                        text: action.text
+                    }
+                } else {
+                    return todo1
+                }
+            })
+
+        // Filters out the todo that matches the action index
+        case 'REMOVE_TODO':
+            return state.filter((todo1, index) => {
+                return index !== action.index
+            })
+
+        // Filters out completed todos
+        case 'CLEAR_TODOS':
+            return state.filter((todo1) => {
+                return !todo1.completed
             })
 
         default:

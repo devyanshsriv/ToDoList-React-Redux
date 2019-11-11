@@ -6,7 +6,10 @@ import { bindActionCreators } from 'redux'
 import { Link } from 'react-router-dom'
 
 function mapStateToProps(state) {
-    return { todos: state.todos }
+    return {
+        todos: state.todos,
+        todos1: state.todos1
+    }
 }
 
 function mapDispatchToProps(dispatch) {
@@ -28,11 +31,13 @@ class Bucket extends Component {
     }
 
     render() {
+        console.log(this.props.id, "bucktess")
+        const { bucketId } = this.props
         return (
             <div className="col-4 col-sm-4 col-md-4 col-lg-4 mt-3">
 
                 <div className="white-block">
-                    <Link to="/bucketContents">
+                    <Link to={"/bucketContents/bucket_" + this.props.id}>
                         <div className="d-flex justify-content-center icon-circle">
 
                             <span className="custom-icon"><img src={BucketIcon} className="image-icon" /></span>

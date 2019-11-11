@@ -6,7 +6,6 @@ export const todoActions = {
         }
     },
     toggleTodo(index) {
-        console.log("wekcome")
         return {
             type: 'TOGGLE_TODO',
             index

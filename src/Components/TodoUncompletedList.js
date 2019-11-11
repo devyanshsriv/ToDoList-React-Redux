@@ -25,7 +25,6 @@ class TodoUncompletedList extends Component {
     }
 
     render() {
-        console.log(this.props, "todos")
         const hasUncompleted = this.props.todos.filter((todo) => !todo.completed).length !== 0
 
         const hasCompleted = this.props.todos.filter((todo) => todo.completed).length !== 0

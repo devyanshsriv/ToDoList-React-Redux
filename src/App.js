@@ -15,6 +15,7 @@ import BucketList from './Components/Bucket/BucketList';
 function mapStateToProps(state) {
   return {
     todos: state.todos,
+    todos1: state.todos1,
     buckets: state.buckets
   }
 }
@@ -29,44 +30,58 @@ function mapDispatchToProps(dispatch) {
 class App extends Component {
 
   render() {
+    console.log(this.props.buckets[0].id, "cursor")
     return (
       <Router>
-        {/* <Route exact path="/" render={(props) =>
+        <Route exact path="/" render={(props) =>
           <BucketList>
             {
-              this.props.buckets.map(({ text }, index) =>
+              this.props.buckets.map(({ id, text }, index) =>
                 <Bucket
                   key={index}
                   index={index}
+                  id={id}
                   text={text}
                 />
               )
             }
           </BucketList>
         }>
-        </Route> */}
-        <Route exact path="/" render={(props) =>
+        </Route>
+        <Route exact path="/bucketContents/bucket_:bucketId" render={(props) =>
           <TodoBackground>
             <TodoContainer>
               <TodoUncompletedList>
                 {
-                  this.props.todos.map(({ text, completed }, index) =>
-                    !completed && <TodoItem
-                      key={index}
-                      index={index}
-                      text={text}
-                      completed={completed}
-                    />
-                  )
+                  this.props.buckets && this.props.buckets[0].id == 1 ?
+                    this.props.todos.map(({ id, text, completed, bucketId }, index) =>
+                      !completed && <TodoItem
+                        key={id}
+                        index={index}
+                        text={text}
+                        bucketId={bucketId}
+                        completed={completed}
+                      />
+                    )
+                    : this.props.todos1.map(({ id, text, completed, bucketId }, index) =>
+                      !completed && <TodoItem
+                        key={id}
+                        index={index}
+                        text={text}
+                        bucketId={bucketId}
+                        completed={completed}
+                      />
+                    )
                 }
               </TodoUncompletedList>
               <TodoCompletedList>
                 {
-                  this.props.todos.map(({ id, text, completed }, index) =>
+                  this.props.todos.map(({ id, text, completed, bucketId }, index) =>
                     completed && <TodoItem
                       key={id}
                       index={index}
                       text={text}
+                      bucketId={bucketId}
                       completed={completed}
                     />
                   )

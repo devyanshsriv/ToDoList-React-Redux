@@ -5,13 +5,14 @@ import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { createLogger } from 'redux-logger'; import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { todos, buckets } from './Reducers/Reducers';
+import { todos, buckets, todos1 } from './Reducers/Reducers';
 import 'tachyons';
 
 const logger = createLogger();
 
 const reducers = combineReducers({
     todos,
+    todos1,
     buckets
 })
 
